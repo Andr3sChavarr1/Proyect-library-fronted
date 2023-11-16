@@ -1,1 +1,30 @@
-<p>autor works!</p>
+<div>
+    <div class="box-title">
+        <h1 class="title">AUTORES</h1>
+    </div>  
+        <form [formGroup]="autorForm" (ngSubmit)="guardar()" class="formulario">
+            <div class="form-group">
+                <label>AUTOR</label>
+                <input type="text" formControlName="autor" class="form-control" placeholder="Ingrese el autor" style="width: 52.5%;">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <table class="table table-bordered">
+            <thead class="table-thead">
+                <tr>
+                    <th>ID</th>
+                    <th>AUTOR</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr *ngFor="let item of autor">
+                    <td>{{item.id}}</td>
+                    <td>{{item.autor}}</td>
+                    <th><button type="button" class="btn btn-success"(click)="editar(item)"><i class="fa fa-pencil"></i></button>  
+                        <button type="button" class="btn btn-danger" (click)="eliminar(item)"><i class="fa fa-trash"></i></button></th>
+                </tr>
+
+            </tbody>
+        </table>
+</div>

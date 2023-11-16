@@ -106,3 +106,16 @@
     }
   
 }
+
+.active{
+    background-color: #ffe383;
+    border-radius: 10px;
+    .sidenav-link-icon,
+    .sidenav-link-text{
+        color: #000000;
+    }
+}
+
+/* .table-body{
+    border: 1px solid black;
+} */

@@ -1,1 +1,30 @@
-<p>editorial works!</p>
+<div>
+    <div class="box-title">
+        <h1 class="title">EDITORIALES</h1>
+    </div>  
+        <form [formGroup]="editorialForm" (ngSubmit)="guardar()" class="formulario">
+            <div class="form-group">
+                <label>EDITORIAL</label>
+                <input type="text" formControlName="editorial" class="form-control" placeholder="Ingrese el editorial" style="width: 52.5%;">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <table class="table table-bordered">
+            <thead class="table-thead">
+                <tr>
+                    <th>ID</th>
+                    <th>EDITORIAL</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr *ngFor="let item of editorial">
+                    <td>{{item.id}}</td>
+                    <td>{{item.editorial}}</td>
+                    <th><button type="button" class="btn btn-success"(click)="editar(item)"><i class="fa fa-pencil"></i></button>  
+                        <button type="button" class="btn btn-danger" (click)="eliminar(item)"><i class="fa fa-trash"></i></button></th>
+                </tr>
+
+            </tbody>
+        </table>
+</div>

@@ -1,1 +1,94 @@
-<p>libros works!</p>
+<div>
+    <div class="box-title">
+        <h1 class="title">LIBROS</h1>
+    </div>
+        <form [formGroup]="libroForm" (ngSubmit)="guardar()" class="formulario">
+            
+            <div class="parte1" >
+                <div class="form-group">
+                    <label>Titulo</label>
+                    <input type="text" formControlName="titulo" class="form-control" placeholder="Ingrese el titulo">
+                </div>
+                <div class="form-group">
+                    <label>Fecha Lanzamiento</label>
+                    <input type="date" formControlName="fechalan" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label>Idioma</label>
+                    <input type="text" formControlName="idioma" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Paginas</label>
+                    <input type="number" formControlName="paginas" class="form-control">
+                </div>
+                
+            </div>
+            <div class="parte2">
+                <div class="form-group">
+                    <label>Descripcion</label>
+                    <textarea type="text-area" formControlName="descripcion" class="form-control"ncols="10" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Portada</label>
+                    <input type="text" formControlName="portada" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Autor</label>
+                    <select name="autor" id="autor" formControlName="autor" class="form-control">
+                        <option [ngValue]="item" *ngFor= "let item of autores">{{item.autor}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <select name="categoria" id="categoria" formControlName="categoria" class="form-control">
+                        <option [ngValue]="item" *ngFor= "let item of categorias">{{item.categoria}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Editorial</label>
+                    <select name="editorial" id="editorial" formControlName="editorial" class="form-control">
+                        <option [ngValue]="item" *ngFor= "let item of editoriales">{{item.editorial}}</option>
+                    </select>
+                </div>
+            </div>
+            
+        <br>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+
+    
+    <table class="table table-bordered" >
+        <thead class="table-thead">
+            <tr>
+                <th>ID</th> 
+                <th>TITULO</th>
+                <th>FECHA LANZAMIENTO</th>
+                <th>IDIOMA</th>
+                <th>PAGINAS</th>
+                <th>DESCRIPCION</th>
+                <th>PORTADA</th>
+                <th>AUTOR</th>
+                <th>CATEGORIA</th>
+                <th>EDITORIAL</th>
+                <th>ACCIONES</th>
+    
+            </tr>
+        </thead>
+        <tbody class="table-body" >
+            <tr *ngFor="let item of libro">
+                <th>{{item.id}}</th>
+                <td>{{item.titulo}}</td>
+                <td>{{item.fechalan}}</td>
+                <td>{{item.idioma}}</td>
+                <td>{{item.paginas}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>{{item.portada}}</td>
+                <td>{{item.autor.autor}}</td>
+                <td>{{item.categoria.categoria}}</td>
+                <td>{{item.editorial.editorial}}</td>
+                <th><button type="button" class="btn btn-success"(click)="editar(item)"><i class="fa fa-pencil"></i></button>  
+                    <button type="button" class="btn btn-danger" (click)="eliminar(item)"><i class="fa fa-trash"></i></button></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
